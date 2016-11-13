@@ -1,7 +1,10 @@
 # 24News-APIs
-Clone the repository
-Install npm modules: npm install
-Install bower dependencies bower install
-Start up the server: node server.js
-Add your IP in remote mysql in cpanel to authentiate communication with remote Wordpress DB.
-View in browser at http://localhost:8080 to start the APIs
+2 APIs for 24NewsHD mobile applications.
+
+## Installation
+1. Clone the repository
+2. Install npm modules: `npm install`
+3. Install bower dependencies `bower install`
+4. Start up the server: `node server.js`
+5. Add your IP in remote mysql in cpanel to authentiate communication with remote Wordpress DB.
+6. View in postman at http://localhost:8080 to start the APIs
