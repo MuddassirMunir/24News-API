@@ -1,0 +1,15 @@
+{
+  "name": "24NewsAPI",
+  "main": "server.js",
+  "dependencies": {
+    "express" : "~4.5.1",
+	"body-parser" : "~1.4.2",
+	"method-override" : "~2.0.2",
+    "bcrypt-nodejs" : "latest",
+    "cookie-parser": "~1.0.0",
+    "express-session": "latest",
+    "mysql":"~2.12.0",
+    "fs":"~0.0.1",
+    "path": "0.12.7"
+  }
+}
