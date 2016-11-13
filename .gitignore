@@ -6,6 +6,6 @@ lib-cov
 *.out
 *.pid
 *.gz
-
-node_modules
-.idea/*
+.DS_Store
+node_modules/
+.idea/
