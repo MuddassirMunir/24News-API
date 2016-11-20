@@ -1,5 +1,5 @@
-# 24News-APIs
-2 APIs for 24NewsHD mobile applications.
+# City42News-APIs
+2 APIs for City42News mobile applications.
 
 ## Installation
 1. Clone the repository
