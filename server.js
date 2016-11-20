@@ -14,7 +14,7 @@ var fs = require('fs');
 
 // config files
 
-var port = 80; // set our port
+var port = process.env.PORT || 8080; // set our port
 
 //Database Connection
 
