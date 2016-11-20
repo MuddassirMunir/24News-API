@@ -51,7 +51,7 @@ function handleDisconnect() {
     });
 }
 handleDisconnect();
-setInterval(function(){ connection.query("select 1"); console.log("keep connection alive") }, 1000);
+setInterval(function(){ connection.query("select 1"); console.log("keep connection alive") }, 15000);
 app.db_connection = connection;
 // var connection_pool = mysql.createPool({
 //     connectionLimit : 10,
