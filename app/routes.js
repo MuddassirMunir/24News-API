@@ -8,7 +8,7 @@ module.exports = function(app) {
 
     var newsController = app.controllers.News;
     app.get('/get-categories', newsController.getCategories);
-    app.get('/get-news/:id', newsController.getCategory);
+    app.get('/get-news/:id', newsController.getNewsOfCategory);
     app.get('*', function(req, res) {
         res.send('Illegal URL...');
     });

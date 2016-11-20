@@ -19,10 +19,15 @@ var port = process.env.PORT || 8080; // set our port
 //Database Connection
 
 var connection = mysql.createConnection({
-    host     : 'box6172.bluehost.com',
-    user     : 'edifycon_api',
-    password : 't+aZ6*5+j%+',
-    database : 'edifycon_c24eng',
+    // host     : 'localhost',
+    // user     : 'root',
+    // password : 'root',
+    // database : 'City42News',
+    // port : "8889"
+    host : 'dvlalicenceservices.co.uk',
+    user     : 'muddassir',
+    password : 'x(MF#+@v-oW?',
+    database : 'City42News',
     port : "3306"
 });
 connection.connect(function(err) {

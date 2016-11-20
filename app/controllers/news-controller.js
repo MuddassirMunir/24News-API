@@ -12,7 +12,7 @@ module.exports = function(app) {
     }
     //****************************************   APIs  ****************************************
     Controller.getCategories = function (req, res) {
-        connection.query('SELECT term_id,name from c24e_terms', function(err, rows, fields) {
+        connection.query('SELECT Category_ID,Category_Name from Categories', function(err, rows, fields) {
             if (err){
                 res.send(err);
             }
@@ -20,8 +20,8 @@ module.exports = function(app) {
                 res.send(rows);
         });
     }
-    Controller.getCategory = function (req, res) {
-        connection.query('SELECT ID,post_author,post_title,post_content,guid from c24e_posts where post_author='+req.params.id, function(err, rows, fields) {
+    Controller.getNewsOfCategory = function (req, res) {
+        connection.query('SELECT * FROM `News` WHERE Category_ID='+req.params.id, function(err, rows, fields) {
             if (err){
                 res.send(err);
             }
