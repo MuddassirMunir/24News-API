@@ -10,7 +10,7 @@ module.exports = function(app) {
     app.get('/get-categories', newsController.getCategories);
     app.get('/get-news/:id', newsController.getNewsOfCategory);
     app.get('*', function(req, res) {
-        res.send('Illegal URL...');
+        res.send('This is an illegal URL.');
     });
 
 };
