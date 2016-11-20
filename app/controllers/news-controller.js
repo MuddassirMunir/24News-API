@@ -13,15 +13,12 @@ module.exports = function(app) {
     //****************************************   APIs  ****************************************
     Controller.getCategories = function (req, res) {
         connection.query('SELECT Category_ID,Category_Name from Categories', function(err, rows, fields) {
-            connection.releaseConnection(c);
             if (err){
                 res.send(err);
             }
             else
                 res.send(rows);
         });
-        // connection.release();
-
     }
     Controller.getNewsOfCategory = function (req, res) {
         connection.query('SELECT * FROM `News` WHERE Category_ID='+req.params.id, function(err, rows, fields) {
@@ -32,6 +29,5 @@ module.exports = function(app) {
                 res.send(rows);
         });
     }
-    // connection.release();
     return Controller
 }
