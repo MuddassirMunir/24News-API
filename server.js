@@ -18,28 +18,49 @@ var port = process.env.PORT || 8080; // set our port
 
 //Database Connection
 
-var connection = mysql.createConnection({
-    // host     : 'localhost',
-    // user     : 'root',
-    // password : 'root',
-    // database : 'City42News',
-    // port : "8889"
-    host : 'dvlalicenceservices.co.uk',
-    user     : 'muddassir',
-    password : 'x(MF#+@v-oW?',
-    database : 'City42News',
-    port : "3306"
-});
-connection.connect(function(err) {
-    if (err) {
-        console.error('error connecting: ' + err.stack);
-        return;
-    }
-    console.log('connected as id ' + connection.threadId);
-});
+var connection;
+function handleDisconnect() {
+    connection = mysql.createConnection({
+        // host     : 'localhost',
+        // user     : 'root',
+        // password : 'root',
+        // database : 'City42News',
+        // port : "8889"
+        host : 'dvlalicenceservices.co.uk',
+        user     : 'muddassir',
+        password : 'x(MF#+@v-oW?',
+        database : 'City42News',
+        port : "3306"
+    }); // Recreate the connection, since
+                                                    // the old one cannot be reused.
+
+    connection.connect(function(err) {              // The server is either down
+        if(err) {                                     // or restarting (takes a while sometimes).
+            console.log('error when connecting to db:', err);
+            setTimeout(handleDisconnect, 2000); // We introduce a delay before attempting to reconnect,
+        }                                     // to avoid a hot loop, and to allow our node script to
+    });                                     // process asynchronous requests in the meantime.
+                                            // If you're also serving http, display a 503 error.
+    connection.on('error', function(err) {
+        console.log('db error', err);
+        if(err.code === 'PROTOCOL_CONNECTION_LOST') { // Connection to the MySQL server is usually
+            handleDisconnect();                         // lost due to either server restart, or a
+        } else {                                      // connnection idle timeout (the wait_timeout
+            throw err;                                  // server variable configures this)
+        }
+    });
+}
+handleDisconnect();
 app.db_connection = connection;
+// connection.connect(function(err) {
+//     if (err) {
+//         console.error('error connecting: ' + err.stack);
+//         return;
+//     }
+//     console.log('connected as id ' + connection.threadId);
+// });
+
 // get all data/stuff of the body (POST) parameters
-app.use(cookieParser());
 app.use(bodyParser.json()); // parse application/json
 app.use(bodyParser.json({ type: 'application/vnd.api+json' })); // parse application/vnd.api+json as json
 app.use(bodyParser.urlencoded({ extended: true })); // parse application/x-www-form-urlencoded
