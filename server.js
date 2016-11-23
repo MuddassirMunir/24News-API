@@ -21,16 +21,16 @@ var port = process.env.PORT || 8080; // set our port
 var connection;
 function handleDisconnect() {
     connection = mysql.createConnection({
-        // host     : 'localhost',
-        // user     : 'root',
-        // password : 'root',
-        // database : 'City42News',
-        // port : "8889"
-        host : 'dvlalicenceservices.co.uk',
-        user     : 'muddassir',
-        password : 'x(MF#+@v-oW?',
+        host     : 'localhost',
+        user     : 'root',
+        password : 'root',
         database : 'City42News',
-        port : "3306"
+        port : "8889"
+        // host : 'dvlalicenceservices.co.uk',
+        // user     : 'muddassir',
+        // password : 'x(MF#+@v-oW?',
+        // database : 'City42News',
+        // port : "3306"
     }); // Recreate the connection, since
                                                     // the old one cannot be reused.
 
