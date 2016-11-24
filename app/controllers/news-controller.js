@@ -87,8 +87,8 @@ module.exports = function(app) {
         var post = {
             User_News_Title : req.body.title,
             User_News_Content : req.body.news_content,
-            User_News_Image_Link : req.body.image_link,
-            User_News_Video_Link : req.body.video_link,
+            Image_Link : req.body.image_link,
+            Video_Link : req.body.video_link,
             User_News_Time_Stamp : getDateTime()
         }
         connection.query("Insert INTO User_News SET ? ",post, function(err, rows) {
