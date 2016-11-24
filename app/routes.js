@@ -9,7 +9,7 @@ module.exports = function(app) {
     var newsController = app.controllers.News;
     app.get('/get-categories', newsController.getCategories);
     app.get('/get-news/:id', newsController.getNewsOfCategory);
-    app.get('/get-latest-news/:id', newsController.getLatestNews);
+    app.get('/get-latest-news', newsController.getLatestNews);
     app.get('/get-trending-news', newsController.getTrendingNews);
     app.get('/get-videos', newsController.getVideos);
     app.post('/add-user-news',newsController.UserAddNews);
